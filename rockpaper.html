@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="jquery-3.3.1.min.js"></script>
+	<title>Tic Tac Toe</title>
+	<style>
+
+	body {
+		background-color: lightcyan;
+	}
+
+	.box {
+		background-color: lime;
+		height: 50px;
+		width: 50px;
+		margin: 5px;
+	}
+
+</style>
+</head>
+<body>
+
+	<div class="container">
+		<div class="row">
+			<div class="box col-md-4"></div>
+			<div class="box col-md-4"></div>
+			<div class="box col-md-4"></div>
+		</div>
+		<div class="row">
+			<div class="box col-md-4"></div>
+			<div class="box col-md-4"></div>
+			<div class="box col-md-4"></div>
+		</div>
+		<div class="row">
+			<div class="box col-md-4"></div>
+			<div class="box col-md-4"></div>
+			<div class="box col-md-4"></div>
+		</div>
+	</div>
+
+	<script>
+
+		$(".box").click(function() {
+			if ($(this).html() == "X") {
+				$(this).html("O")
+				$(this).css("background-image", "url('http://orig07.deviantart.net/782a/f/2011/208/0/e/my_aperture_science_logo_by_lazulichaos-d41sqai.png')")	
+			} else {
+				$(this).html("X")
+				$(this).css("background-image", "url('http://worldartsme.com/images/x-symbol-clipart-1.jpg')")	
+				$(this).css("background-size", "50px")
+			}})
+
+		</script>
+<input id="my-choice" type="text" name="Name" placeholder="Please write your choice">
+<button onclick="rockPaperScissors()">Send</button>
+
+<script type="text/javascript">
+	// 	var mails = [];
+	// function myButtonFunction() {
+	// 	var name = document.getElementById("myname").value;
+	// 	mails.push(name);
+	// 	console.log(mails);
+	// }
+	
+function rockPaperScissors(humanChoice) {
+
+	var humanChoice = document.getElementById("my-choice").value;
+
+  var computerChoiceNum = Math.floor(Math.random() * 3)
+
+  var numToWord = {
+    0: "rock",
+    1: "paper",
+    2: "scissors"
+  }
+
+  var computerChoice = numToWord[computerChoiceNum]
+  
+  if (humanChoice == "rock" && computerChoice == "paper") {
+    alert("Human chooses rock and Computer chooses paper. Computer wins!")
+  } else if (humanChoice == "rock" && computerChoice == "scissors") {
+    alert("Human chooses rock and Computer chooses scissors. Human wins!")
+  } else if (humanChoice == "paper" && computerChoice == "rock") {
+    alert("Human chooses paper and Computer chooses rock. Human wins!")
+  } else if (humanChoice == "paper" && computerChoice == "scissors") {
+    alert("Human chooses paper and Computer chooses scissors. Computer wins!")
+  } else if (humanChoice == "scissors" && computerChoice == "rock") {
+    alert("Human chooses scissors and Computer chooses rock. Computer wins!")
+  } else if (humanChoice == "scissors" && computerChoice == "paper") {
+    alert("Human chooses scissors and Computer chooses paper. Human wins!")
+  } else {     
+    alert("Human chooses " + humanChoice + " and Computer chooses " + computerChoice + ". It's a draw!")  
+  }
+
+}
+
+rockPaperScissors(choice)
+
+</script>
+</body>
+</html>
